@@ -93,12 +93,18 @@ nav ul li{
 #myProgressBar{
     width: 80vw;
     height: fit-content;
+    cursor: pointer;
 }
 .songInfo{
     position: absolute;
+    font-family: 'Varela Round', sans-serif;
     left: 10vw;
 }
 .songInfo img{
     opacity: 0;
-    transition: opacity 1s ease-in;
+    transition: opacity 0.5s ease-in;
+}
+#playingSongName{
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
 }
