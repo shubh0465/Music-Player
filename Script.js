@@ -9,6 +9,7 @@ let gif = document.getElementById("playingGif")
 let songItems = Array.from(document.getElementsByClassName('songItem'))
 let playingSongName = document.getElementById('playingSongName')
 let songNotPlaying = true;
+let songPlaying=0;
 
 let songs = [
     { songName: "Apna Bana Le - Arijit Singh", filePath: "Songs/1.mp3", coverPath: "Covers/1.jpg" },
@@ -51,9 +52,10 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) =>
         playingSongName.innerText = songs[songIndex - 1].songName;
         audioElement.src = `Songs/${songIndex}.mp3`;
         audioElement.currentTime = 0;
-        if(songNotPlaying) {
+        if(songNotPlaying || songPlaying!=songIndex) {
             makeAllPlayButton();
             songNotPlaying=false;
+            songPlaying=songIndex;
             e.target.classList.remove("fa-circle-play");
             e.target.classList.add("fa-circle-pause");
             audioElement.play();
